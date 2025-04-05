@@ -8,3 +8,4 @@ passlib[bcrypt]
 httpx
 beautifulsoup4
 google-generativeai
+pydantic[email]
