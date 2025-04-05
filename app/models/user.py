@@ -1,9 +1,14 @@
 from pydantic import BaseModel, EmailStr
-from typing import Optional
+from typing import List, Optional
 
 class EmergencyContact(BaseModel):
     name: str
     phone: str
+
+class TodoItem(BaseModel):
+    id: str
+    text: str
+    completed: bool = False
 
 class UserBase(BaseModel):
     name: str
@@ -11,6 +16,7 @@ class UserBase(BaseModel):
     age: int
     religion: Optional[str] = None
     emergency_contact: EmergencyContact
+    todos: Optional[List[TodoItem]] = []
 
 class UserCreate(UserBase):
     password: str

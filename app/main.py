@@ -4,7 +4,7 @@ from routes.auth import router as auth_router
 from routes.weather import router as weather_router
 from routes.schemes import router as schemes_router
 from routes.gemini import router as gemini_router  # New import
-
+from routes.todos import router as todos_router  # New import
 app = FastAPI()
 
 app.add_middleware(
@@ -19,6 +19,7 @@ app.include_router(auth_router, prefix="/auth", tags=["auth"])
 app.include_router(weather_router, prefix="/api", tags=["weather"])
 app.include_router(schemes_router, prefix="/api", tags=["schemes"])
 app.include_router(gemini_router, prefix="/api", tags=["gemini"])  # New router
+app.include_router(todos_router, prefix="/api", tags=["todos"])  # New router
 
 @app.get("/")
 async def root():
