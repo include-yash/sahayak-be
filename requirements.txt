@@ -1,5 +1,4 @@
 fastapi
-uvicorn
 python-dotenv
 pymongo
 pydantic
@@ -9,3 +8,5 @@ httpx
 beautifulsoup4
 google-generativeai
 pydantic[email]
+uvicorn[standard]
+gunicorn
