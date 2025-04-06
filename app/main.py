@@ -25,6 +25,7 @@ app.include_router(todos_router, prefix="/api", tags=["todos"])  # New router
 
 @app.get("/")
 async def root():
+    print("hello")
     return {"message": "Welcome to the Authentication API"}
 
 if __name__ == "__main__":
