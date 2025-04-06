@@ -5,11 +5,13 @@ from routes.weather import router as weather_router
 from routes.schemes import router as schemes_router
 from routes.gemini import router as gemini_router  # New import
 from routes.todos import router as todos_router  # New import
+import os
+
 app = FastAPI()
 
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:3000"],  # Your Next.js frontend URL
+    allow_origins=["*"],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -24,3 +26,8 @@ app.include_router(todos_router, prefix="/api", tags=["todos"])  # New router
 @app.get("/")
 async def root():
     return {"message": "Welcome to the Authentication API"}
+
+if __name__ == "__main__":
+    port = int(os.environ.get("PORT", 8000))
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
